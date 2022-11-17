@@ -1,22 +1,20 @@
 <template>
-    <Header></Header>
+    <Header v-if="authen"></Header>
     <div id="section-body">
-        <nav id="nav-main" class="wrapper-navigation">
-            <ol>
-                <li>
-                    <a href="/">SONGS</a>
-                </li>
-                <li>
-                    <a href="/albums">ALBUMS</a>
-                </li>
-                <li>
-                    <a href="/about">ABOUT</a>
-                </li>
-            </ol>
-        </nav>
+        <NavigationComponent v-if="authen"></NavigationComponent>
         <router-view class="section-router"></router-view>
     </div>
-    <div id="section-player">
+    <div id="section-player" v-if="authen">
         <AudioPlayer />
     </div>
 </template>
+<script>
+import { auth } from './stores/auth';
+export default {
+    data: () => {
+        return {
+            authen: auth.is_authenticated
+        }
+    }
+}
+</script>
