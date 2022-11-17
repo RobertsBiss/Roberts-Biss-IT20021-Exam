@@ -7,6 +7,7 @@ import App from './App.vue'
 // Importējam vēlamās komponentes
 import Header from './components/HeaderComponent.vue'
 import AudioPlayer from './components/AudioPlayerComponent.vue'
+import Navigation from './components/NavigationComponent.vue'
 
 const app = createApp(App)
 
